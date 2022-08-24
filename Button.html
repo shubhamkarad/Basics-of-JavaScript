@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <title>Example</title>
+</head>
+
+<body>
+    <form name="myForm">
+        <label for="name">Name</label>
+        <input type="text" name="sname" id="name">
+        <label for="hobbies">Hobbies</label>
+        <input type="checkbox" name="checkbox" id="myCheck" value="on">
+        <input type="submit" value="Submit" id="sub" onclick="submitForm()">
+        <input type="submit" value="Submit" id="sub1" onclick="subForm()">
+    </form>
+    <script>
+
+        function submitForm() {
+            event.preventDefault();
+            var name1 = document.forms['myForm']['sname'].value;
+            if (name1 == "") {
+                var subb1 = document.getElementById('sub1').style.display = "none";
+                document.getElementById('sub').disabled = true;
+                console.log('please enter your name');
+            }
+            else {
+                document.getElementById('sub').disabled = false;
+                console.log(name1, 'Hi');
+            }
+        }
+        function subForm() {
+            event.preventDefault();
+            var check = document.getElementById('myCheck');
+            if (check.checked == false) {
+                alert('You must agree to the terms first.');
+            }
+
+        }
+    </script>
+</body>
+
+</html>

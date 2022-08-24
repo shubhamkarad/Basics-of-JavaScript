@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        table {
+            margin: auto;
+            width: 295px;
+            height: 350px;
+            border-radius: 4px;
+            background-color: rgb(140, 140, 253);
+            padding: 5px 5px;
+
+
+        }
+
+        input[type="button"] {
+            outline: 0;
+            position: relative;
+            left: 5px;
+            top: 5px;
+            border: 0;
+            border-radius: 5px;
+            background-color: rgb(196, 139, 112);
+            color: white;
+            padding: 5px 0px;
+            width: 60px;
+            height: 50px;
+            box-shadow: 0 4px rgba(0, 0, 0, 0.2);
+        }
+
+        input[type="button"]:hover {
+            background-color: antiquewhite;
+            color: black;
+        }
+
+        input[type="button"].operator {
+            background-color: rgb(177, 210, 30);
+        }
+
+        input[type="text"] {
+            border-radius: 10px;
+            text-align: right;
+            background-color: #f1faeb;
+            color: black;
+            padding: 1px;
+            height: 50px;
+            margin-top: 5px;
+            border-color: white;
+            width: 97%
+        }
+
+        .title {
+            text-align: center;
+            padding: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="title">Calculator</div>
+    <table>
+        <tr>
+            <td><input type="button" value="c" onclick="clr()" /></td>
+            <td colspan="3"><input type="text" value="" id="textValue" /></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="1" onclick="display('1')" /></td>
+            <td><input type="button" value="2" onclick="display('2')" /></td>
+            <td><input type="button" value="3" onclick="display('3')" /></td>
+            <td><input type="button" value="+" class="operator" onclick="display('+')" /></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="4" onclick="display('4')" /></td>
+            <td><input type="button" value="5" onclick="display('5')" /></td>
+            <td><input type="button" value="6" onclick="display('6')" /></td>
+            <td><input type="button" value="-" class="operator" onclick="display('-')" /></td>
+        </tr>
+        <tr>
+
+            <td><input type="button" value="7" onclick="display('7')" /></td>
+            <td><input type="button" value="8" onclick="display('8')" /></td>
+            <td><input type="button" value="9" onclick="display('9')" /></td>
+            <td><input type="button" value="*" class="operator" onclick="display('*')" /></td>
+        </tr>
+        <tr>
+
+            <td><input type="button" value="/" class="operator" onclick="display('/')" /></td>
+            <td><input type="button" value="0" onclick="display('0')" /></td>
+            <td><input type="button" value="=" class="operator" onclick="solve()" /></td>
+            <td><input type="button" value="." class="operator" onclick="display('.')" /></td>
+
+
+        </tr>
+
+    </table>
+
+</body>
+<script>
+    function display(val) {
+        document.getElementById("textValue").value += val
+    }
+    function solve() {
+        let x = document.getElementById("textValue").value
+        let y = eval(x);
+        document.getElementById("textValue").value = y
+    }
+    function clr() {
+        document.getElementById("textValue").value = "";
+    }
+</script>
+
+</html>
